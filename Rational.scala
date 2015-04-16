@@ -11,10 +11,16 @@ case class Rational(numerator: Long, denominator: Long) {
   }
 
   def +(o: Rational) = Rational(n * o.d + o.n * d, d * o.d)
+  def +(i: Long) = Rational(i * d + n, d)
+
   def -(o: Rational) = Rational(n * o.d - o.n * d, d * o.d)
+  def -(i: Long) = Rational(i * d - n, d)
 
   def *(o: Rational) = Rational(n * o.n, d * o.d)
+  def *(i: Long) = Rational(i * n, d)
+
   def /(o: Rational) = Rational(n * o.d, d * o.n)
+  def /(i: Long) = Rational(n, i * d)
 
   def ==(o: Rational): Boolean = (n == o.n) && (d == o.d)
 
@@ -25,6 +31,8 @@ case class Rational(numerator: Long, denominator: Long) {
 }
 
 object Rational {
+  implicit def longToRational(i: Long) = Rational(i, 1)
+
   def main(args: Array[String]): Unit = {
     println(Rational(1,7))
     println(Rational(1,7) + Rational(8,9))
@@ -38,6 +46,9 @@ object Rational {
     assert(Rational(2,4) / Rational(1,2) == Rational(1,1))
     assert(Rational(1,2) + Rational(1,4) == Rational(3,4))
     assert(Rational(2,3) - Rational(1,2) == Rational(1,6))
+
+    assert((Rational(1,4) * 4) == Rational(1, 1))
+    assert((4 * Rational(1,4)) == Rational(1, 1))
 
     try {
       Rational(1,0)
