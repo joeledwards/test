@@ -9,6 +9,11 @@
   "author": "Joel Edwards <joeledwards@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "valid-json": ">=1"
+    "durations" : "*",
+    "flat-raml" : "*",
+    "lodash" : "*",
+    "q" : "*",
+    "queue" : "*",
+    "valid-json": "*"
   }
 }
