@@ -1,3 +1,5 @@
-val files = for (file <- (new java.io.File(".")).listFiles) yield file
-for (file <- files) println(file)
 
+object Files extends App {
+  val files = for (file <- (new java.io.File(".")).listFiles) yield file
+  for (file <- files) println(file)
+}
