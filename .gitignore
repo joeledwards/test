@@ -1,2 +1,6 @@
 node_modules
 *.class
+/project/project
+/project/target
+/target
+/root
